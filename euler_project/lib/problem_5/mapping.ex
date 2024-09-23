@@ -10,8 +10,8 @@ defmodule Problem5Mapping do
 
   def problem_5 do
     1..20
-    # task constraints, could be removed
-    |> Enum.map(& &1)
+    |> Map.new(fn x -> {x, x} end)
+    |> Map.values()
     |> Enum.reduce(&lcm/2)
   end
 end
