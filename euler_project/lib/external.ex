@@ -6,7 +6,7 @@ defmodule Mix.Tasks.RunExternalScript do
 
   @shortdoc "Runs a shell script"
   def run([script_path]) do
-    {output, exit_code} = System.cmd("zsh", [script_path])
+    {output, exit_code} = System.cmd("sh", [script_path])
 
     if exit_code == 0 do
       IO.puts(output)
