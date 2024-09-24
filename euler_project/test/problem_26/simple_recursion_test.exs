@@ -6,7 +6,7 @@ defmodule Problem26SimpleRecursionTest do
   use ExUnit.Case
   doctest Problem26SimpleRecursion
 
-  test "problem_26" do
-    assert Problem26SimpleRecursion.problem_26() == 983
+  test "problem" do
+    assert Problem26SimpleRecursion.problem() == 983
   end
 end

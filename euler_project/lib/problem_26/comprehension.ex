@@ -3,7 +3,7 @@ defmodule Problem26Comprehension do
   Problem 26: Reciprocal cycles using list comprehension
   """
 
-  def problem_26 do
+  def problem do
     for d <- 1..999, reduce: {0, 0} do
       {max_d, max_len} ->
         len = cycle_length(d)

@@ -8,7 +8,7 @@ defmodule Problem5Comprehension do
 
   defp lcm(a, b), do: div(a * b, gcd(a, b))
 
-  def problem_5 do
+  def problem do
     for n <- 1..20, reduce: 1 do
       acc -> lcm(acc, n)
     end

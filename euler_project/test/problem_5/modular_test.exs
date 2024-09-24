@@ -5,7 +5,7 @@ defmodule Problem5ModularTest do
   use ExUnit.Case
   doctest Problem5Modular
 
-  test "problem_5" do
-    assert Problem5Modular.problem_5() == 232_792_560
+  test "problem" do
+    assert Problem5Modular.problem() == 232_792_560
   end
 end

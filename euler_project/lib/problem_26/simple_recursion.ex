@@ -3,7 +3,7 @@ defmodule Problem26SimpleRecursion do
   Problem 26: Reciprocal cycles using simple recursion
   """
 
-  def problem_26 do
+  def problem do
     1..999
     |> Enum.map(&{&1, cycle_length(1, &1, [], 0)})
     |> Enum.max_by(fn {_, length} -> length end)
@@ -15,6 +15,7 @@ defmodule Problem26SimpleRecursion do
 
   defp cycle_length(num, den, seen, count) do
     rem = rem(num, den)
+
     if rem in seen do
       count
     else

@@ -5,7 +5,7 @@ defmodule Problem5SimpleRecursionTest do
   use ExUnit.Case
   doctest Problem5SimpleRecursion
 
-  test "problem_5" do
-    assert Problem5SimpleRecursion.problem_5() == 232_792_560
+  test "problem" do
+    assert Problem5SimpleRecursion.problem() == 232_792_560
   end
 end

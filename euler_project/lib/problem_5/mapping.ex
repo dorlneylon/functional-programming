@@ -8,7 +8,7 @@ defmodule Problem5Mapping do
 
   defp lcm(a, b), do: div(a * b, gcd(a, b))
 
-  def problem_5 do
+  def problem do
     1..20
     |> Map.new(fn x -> {x, x} end)
     |> Map.values()

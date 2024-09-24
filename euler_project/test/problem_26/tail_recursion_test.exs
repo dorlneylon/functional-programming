@@ -1,8 +1,11 @@
 defmodule Problem26TailRecursionTest do
+  @moduledoc """
+  Test for Problem 26: Reciprocal cycles using tail recursion
+  """
   use ExUnit.Case
   doctest Problem26TailRecursion
 
-  test "problem_26" do
-    assert Problem26TailRecursion.problem_26() == 983
+  test "problem" do
+    assert Problem26TailRecursion.problem() == 983
   end
 end

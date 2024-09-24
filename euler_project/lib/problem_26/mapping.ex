@@ -3,7 +3,7 @@ defmodule Problem26Mapping do
   Problem 26: Reciprocal cycles using mapping
   """
 
-  def problem_26 do
+  def problem do
     1..999
     |> Enum.map(&{&1, cycle_length(&1)})
     |> Enum.max_by(fn {_, length} -> length end)

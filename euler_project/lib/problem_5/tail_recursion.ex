@@ -7,7 +7,7 @@ defmodule Problem5TailRecursion do
 
   defp lcm(a, b), do: div(a * b, gcd(a, b))
 
-  def problem_5 do
+  def problem do
     lcm_tail(1, 2, 20)
   end
 

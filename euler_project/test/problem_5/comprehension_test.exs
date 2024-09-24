@@ -5,7 +5,7 @@ defmodule Problem5ComprehensionTest do
   use ExUnit.Case
   doctest Problem5Comprehension
 
-  test "problem_5" do
-    assert Problem5Comprehension.problem_5() == 232_792_560
+  test "problem" do
+    assert Problem5Comprehension.problem() == 232_792_560
   end
 end

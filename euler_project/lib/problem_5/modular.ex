@@ -8,7 +8,7 @@ defmodule Problem5Modular do
 
   defp lcm(a, b), do: div(a * b, gcd(a, b))
 
-  def problem_5 do
+  def problem do
     Stream.iterate(1, &(&1 + 1))
     |> Enum.take(20)
     |> Enum.reduce(1, fn x, acc -> lcm(x, acc) end)

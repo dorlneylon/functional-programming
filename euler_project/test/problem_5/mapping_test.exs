@@ -5,7 +5,7 @@ defmodule Problem5MappingTest do
   use ExUnit.Case
   doctest Problem5Mapping
 
-  test "problem_5" do
-    assert Problem5Mapping.problem_5() == 232_792_560
+  test "problem" do
+    assert Problem5Mapping.problem() == 232_792_560
   end
 end

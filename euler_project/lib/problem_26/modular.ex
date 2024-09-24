@@ -3,7 +3,7 @@ defmodule Problem26Modular do
   Problem 26: Reciprocal cycles using modular implementation
   """
 
-  def problem_26 do
+  def problem do
     1..999
     |> Enum.map(&{&1, cycle_length(&1)})
     |> Enum.max_by(fn {_, length} -> length end)
@@ -12,6 +12,7 @@ defmodule Problem26Modular do
 
   defp cycle_length(den) do
     remainders = Stream.iterate(1, &(&1 * 10))
+
     remainders
     |> Stream.map(&rem(&1, den))
     |> find_cycle_length(%{}, 0)
