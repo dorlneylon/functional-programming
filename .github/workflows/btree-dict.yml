@@ -1,0 +1,47 @@
+name: "binary-tree-dict"
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  lint:
+    name: Lint Binary Tree Dict
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./binary_tree_dict
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Elixir
+      uses: erlef/setup-beam@v1
+      with:
+        elixir-version: '1.17'
+        otp-version: '26.0.1'
+    - name: Install dependencies
+      run: mix deps.get
+    - name: Run Credo
+      run: mix credo --strict
+
+  test:
+    name: Test Binary Tree Dict
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./binary_tree_dict
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Elixir
+      uses: erlef/setup-beam@v1
+      with:
+        elixir-version: '1.17'
+        otp-version: '26.0.1'
+    - name: Install dependencies
+      run: mix deps.get
+    - name: Run tests
+      run: mix test
+
