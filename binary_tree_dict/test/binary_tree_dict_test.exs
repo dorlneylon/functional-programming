@@ -141,7 +141,7 @@ defmodule BinaryTreeDictTest do
 
   describe "monoid properties" do
     property "left identity" do
-      check all kvs <- list_of({integer(), integer()}, min_length: 1, max_length: 5) do
+      check all kvs <- list_of({integer(), integer()}, min_length: 1, max_length: 1000) do
         dict = Enum.reduce(kvs, BinaryTreeDict.new(), fn {k, v}, acc ->
           BinaryTreeDict.put(acc, k, v)
         end)
@@ -152,7 +152,7 @@ defmodule BinaryTreeDictTest do
     end
 
     property "right identity" do
-      check all kvs <- list_of({integer(), integer()}, min_length: 1, max_length: 5) do
+      check all kvs <- list_of({integer(), integer()}, min_length: 1, max_length: 1000) do
         dict = Enum.reduce(kvs, BinaryTreeDict.new(), fn {k, v}, acc ->
           BinaryTreeDict.put(acc, k, v)
         end)
@@ -163,9 +163,9 @@ defmodule BinaryTreeDictTest do
     end
 
     property "associativity" do
-      check all kvs1 <- list_of({integer(), integer()}, min_length: 1, max_length: 3),
-                kvs2 <- list_of({integer(), integer()}, min_length: 1, max_length: 3),
-                kvs3 <- list_of({integer(), integer()}, min_length: 1, max_length: 3) do
+      check all kvs1 <- list_of({integer(), integer()}, min_length: 1, max_length: 1000),
+                kvs2 <- list_of({integer(), integer()}, min_length: 1, max_length: 1000),
+                kvs3 <- list_of({integer(), integer()}, min_length: 1, max_length: 1000) do
         dict1 = Enum.reduce(kvs1, BinaryTreeDict.new(), fn {k, v}, acc ->
           BinaryTreeDict.put(acc, k, v)
         end)
