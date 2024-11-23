@@ -4,3 +4,4 @@
 
 - [Lab 1](euler_project)
 - [Lab 2](binary_tree_dict)
+- [Lab 3](io)
