@@ -3,6 +3,10 @@ defmodule Io do
   Io module for running the interpolation algorithms.
   """
 
+  alias Io.Cli.{Inputs, Outputs}
+  alias Io.{LagrangeInterpolation, LinearInterpolation}
+
+
   def main(args) do
     {opts, _, _} =
       OptionParser.parse(args,
@@ -19,16 +23,16 @@ defmodule Io do
     algorithms = parse_algorithms(opts[:algorithms] || "linear")
     frequency = opts[:frequency] || 1
 
-    output_pid = spawn(Io.Cli.Outputs, :start, [])
+    output_pid = spawn(Outputs, :start, [])
 
     alg_pids =
       Enum.map(algorithms, fn alg ->
         case alg do
           :linear ->
-            spawn(Io.LinearInterpolation, :start, [output_pid, frequency])
+            spawn(LinearInterpolation, :start, [output_pid, frequency])
 
           :lagrange ->
-            spawn(Io.LagrangeInterpolation, :start, [output_pid, frequency])
+            spawn(LagrangeInterpolation, :start, [output_pid, frequency])
 
           _ ->
             IO.puts("Unknown algorithm: #{alg}")
@@ -37,7 +41,7 @@ defmodule Io do
       end)
       |> Enum.filter(& &1)
 
-    Io.Cli.Inputs.start(alg_pids)
+    Inputs.start(alg_pids)
   end
 
   defp parse_algorithms(algo_str) do
