@@ -6,7 +6,6 @@ defmodule Io do
   alias Io.Cli.{Inputs, Outputs}
   alias Io.{LagrangeInterpolation, LinearInterpolation}
 
-
   def main(args) do
     {opts, _, _} =
       OptionParser.parse(args,
